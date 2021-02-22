@@ -25,7 +25,7 @@ namespace OpenFTTH.Util
             AddRange(objects);
         }
 
-        public bool TryGetValue(Guid key, out T? value)
+        public bool TryGetValue(Guid key, out T value)
         {
             if (_objectsDict.TryGetValue(key, out var obj))
             {
