@@ -20,6 +20,8 @@ namespace OpenFTTH.Core.Tests.Util.LookupCollection
 
             var deserializedObject = JsonConvert.DeserializeObject<LookupCollection<Foo>>(json);
 
+            ArgumentNullException.ThrowIfNull(deserializedObject);
+
             deserializedObject[foo1.Id].Name.Should().Be("Hest");
             deserializedObject[foo2.Id].Name.Should().Be("Hund");
             deserializedObject.TryGetValue(foo1.Id, out var _).Should().BeTrue();
@@ -34,7 +36,5 @@ namespace OpenFTTH.Core.Tests.Util.LookupCollection
 
             public string? Description { get; init; }
         }
-
-
     }
 }
